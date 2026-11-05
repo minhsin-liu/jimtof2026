@@ -23,6 +23,7 @@ h2 { font-size: 17px; margin: 0 0 12px; color: var(--navy-deep); }
 .muted { color: var(--muted); }
 small { font-size: 12px; }
 .ic { flex: none; vertical-align: -3px; }
+[hidden] { display: none !important; }
 
 /* ---------------- header ---------------- */
 .topbar { position: sticky; top: 0; z-index: 20; background: var(--navy); color: #fff; }
@@ -220,6 +221,42 @@ a.module:hover { text-decoration: none; transform: translateY(-2px); border-colo
 .tag { background: var(--navy-soft); color: var(--navy); border-radius: 4px; padding: 0 6px; font-size: 12px; }
 .badge { display: inline-block; font-size: 12px; font-weight: bold; color: var(--c); border: 1px solid var(--c); border-radius: 10px; padding: 0 8px; background: #fff; }
 .badge small { font-weight: normal; }
+
+.dtype { display: inline-block; font-size: 11px; font-weight: bold; color: #fff; background: var(--k); border-radius: 4px; padding: 0 7px; vertical-align: 1px; }
+.thumb .dtype { position: absolute; left: 6px; top: 6px; }
+.dtype-pick { border: 0; padding: 0; margin: 0 0 12px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.dtype-pick legend { font-size: 13px; color: #374151; margin-bottom: 4px; padding: 0; }
+.dtype-pick label { margin: 0; cursor: pointer; }
+.dtype-pick input { position: absolute; opacity: 0; }
+.dtype-pick span { display: flex; flex-direction: column; border: 1.5px solid var(--line); border-radius: 8px; padding: 7px 10px; background: #fff; }
+.dtype-pick b { color: var(--k); font-size: 14px; }
+.dtype-pick small { color: var(--muted); }
+.dtype-pick input:checked + span { border-color: var(--k); box-shadow: inset 0 0 0 1px var(--k); background: color-mix(in srgb, var(--k) 7%, #fff); }
+.dtype-pick input:focus-visible + span { outline: 2px solid var(--navy); outline-offset: 2px; }
+@media (max-width: 700px) { .dtype-pick { grid-template-columns: minmax(0, 1fr); } }
+
+/* 依資料類型分區上傳、檔案分組 */
+.dtypes { display: inline-flex; flex-wrap: wrap; gap: 3px; }
+.thumb .dtypes { position: absolute; left: 6px; top: 6px; }
+.thumb .dtypes .dtype { position: static; }
+.tz-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.tz { border: 1.5px solid color-mix(in srgb, var(--k) 35%, var(--line)); border-top: 4px solid var(--k); border-radius: 10px;
+  padding: 10px 12px 2px; background: color-mix(in srgb, var(--k) 4%, #fff); min-width: 0; }
+.tz-head { display: flex; flex-direction: column; gap: 3px; margin-bottom: 8px; }
+.tz-head .dtype { align-self: flex-start; font-size: 13px; padding: 1px 9px; }
+.tz-head small { color: var(--muted); }
+.tz .dropzone { border-color: color-mix(in srgb, var(--k) 45%, #c8d0dd); background: #fff; }
+.tz .dropzone:hover, .tz .dropzone.over { border-color: var(--k); background: color-mix(in srgb, var(--k) 6%, #fff); }
+.dropzone.compact { padding: 14px 10px; }
+.tz-note { font-size: 12px; margin: 6px 0 12px; }
+.fgroup { border-left: 4px solid var(--k); padding: 4px 0 4px 14px; margin-bottom: 16px; }
+.fgroup-head { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.fgroup-head .dtype { font-size: 13px; padding: 1px 9px; }
+.ftype select { width: auto; display: inline-block; margin: 0; padding: 3px 6px; font-size: 13px; }
+.add-files summary { list-style: none; cursor: pointer; display: inline-flex; margin-top: 4px; }
+.add-files summary::-webkit-details-marker { display: none; }
+.add-files[open] summary { margin-bottom: 12px; }
+@media (max-width: 900px) { .tz-grid { grid-template-columns: minmax(0, 1fr); } }
 
 /* ================= stage page ================= */
 .page-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap;
