@@ -267,3 +267,6 @@
 .mx-legend i.lv2 { background: color-mix(in srgb, var(--navy) 65%, #fff); }
 .mx-legend i.lv3 { background: var(--navy); }
 .co-grid-head { margin-top: 6px; }
+
+.co-region.tw { background: #0f766e; }
+.co-region.us { background: #6d28d9; }
